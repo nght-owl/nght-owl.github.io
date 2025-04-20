@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Nightowl's Augmented Portfolio</title>
+    
+    <link rel="preload" as="style" type="text/css" href="style.css" onload="this.rel='stylesheet';" />
+    <link rel="preload" as="style" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" onload="this.rel = 'stylesheet';" />
+    <noscript>
+      <link rel="stylesheet" type="text/css" href="style.css" />
+      <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    </noscript>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&amp;display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <script src="https://cdn.jsdelivr.net/npm/eruda@2" onload="eruda.init();"></script>
+    
+    <input type="radio" id="about-me" name="tab" checked />
+    <input type="radio" id="project" name="tab" />
+    
+    <div class="layout">
+      <header>
+        <section aria-label="NightOwl's Portfolio" id="profile" itemscope itemtype="https://schema.org/Person">
+          <img alt="profile_picture.png" aria-hidden="true" />
+          <h1 itemprop="name">NightOwl <small aria-label="A Learning Programmer" class="tag" itemprop="proffesion">Learning Programmer</small></h1>
+        </section>
+        <hr />
+        <section aria-label="Contact" id="contact">
+          <ul>
+            <li>
+              <i class="fa fa-envelope" aria-hidden="true"></i>
+              <div>
+                <h3>Email</h3>
+                <span><a href="mailto:nightowl@gmail.com">nightowl@gmail.com</a></span>
+              </div>
+            </li>
+            <li>
+              <i class="fa fa-globe" aria-hidden="true"></i>
+              <div>
+                <h3>Location and Time</h3>
+                <span>Indonesia (GMT+8, UTC+8)</span>
+              </div>
+            </li>
+          </ul>
+          <hr />
+          <section aria-label="Social Media">
+            <!-- TODO: I don't have a public social media yet -->
+          </section>
+        </section>
+      </header>
+
+      <main>
+        <nav>
+          <label for="about-me">About Me</label>
+          <label for="project">Project</label>
+        </nav>
+        <section id="about-me-tab">
+          <h2>About Me<hr /></h2>
+          <p>
+            I'm not a professional programmer, but I'm learning.
+          </p>
+          
+          <h3 class="doing">What I'm Doing</h3>
+          <ul class="doing">
+            <li class="card">
+              <figure>
+                <h4>Web Design</h4>
+                <figcaption>Responsive design that looks aestethic</figcaption>
+              </figure>
+            </li>
+            <li class="card">
+              <figure>
+                <h4>Web Development</h4>
+                <figcaption>Optimized webpage, Good UI/UX</figcaption>
+              </figure>
+            </li>
+            <li class="card">
+              <figure>
+                <h4>Software Development</h4>
+                <figcaption>I make software</figcaption>
+              </figure>
+            </li>
+          </ul>
+        </section>
+        <section id="project-tab">
+          <h2>Project<hr /></h2>
+          None yet! lol
+        </section>
+      </main>
+    </div>
+  </body>
+</html>
