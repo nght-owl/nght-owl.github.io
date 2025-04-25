@@ -1,0 +1,31 @@
+@keyframes rich-text--typing {
+  0% {
+    width: 0;
+  }
+  
+  60% {
+    width: 100%;
+  }
+  
+  100% {
+    width: 100%;
+  }
+}
+
+@keyframes rich-text--typing-blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+.rich-text--typewriter-animation {
+  letter-spacing: 0em;
+  overflow: hidden;
+  animation: rich-text--typing 3.5s steps(1000, end) infinite;
+}
+
+.rich-text--typewriter-animation::after {
+  z-index: 0;
+  content: '|';
+  animation: rich-text--typing-blink 0.7s step-end infinite;
+}

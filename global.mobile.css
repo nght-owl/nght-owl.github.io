@@ -1,0 +1,81 @@
+header.page {
+  top: 0;
+  left: 0;
+  flex-direction: column;
+  position: sticky;
+}
+
+header.page h1 {
+  width: 100%;
+  text-align: left;
+}
+
+header.page h1 i {
+  margin-right: 1rem;
+  display: inline-block;
+  float: right;
+  
+  /** set color to white instead of background clip from h1 **/
+  color: white;
+  background-image: none;
+  background-clip: initial;
+  -webkit-background-clip: initial;
+  -webkit-text-fill-color: initial;
+}
+
+header.page nav {
+  max-width: 100%;
+  width: 100%;
+  padding: 1rem;
+  opacity: 0;
+  display: none;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-end;
+  text-align: right;
+  overflow: hidden;
+  transition: opacity 2s ease-in-out;
+}
+
+#toggle--hamburger-mobile:checked ~ header.page nav {
+  min-height: 100vh;
+  opacity: 1;
+  display: flex;
+}
+
+header.page ul {
+  width: 100%;
+  height: auto;
+  flex-direction: column;
+}
+
+header.page li {
+  display: block;
+}
+
+header.page hr {
+  width: 100%;
+  height: 1px;
+  align-self: stretch;
+  border: none;
+  display: block;
+  background-color: var(--cl-ac);
+}
+
+header.page a {
+  width: 100%;
+  padding: 1rem;
+  display: block;
+}
+
+.sublist .sublist-title {
+  display: none;
+}
+
+.sublist .sublist-items {
+  width: 100%;
+  padding: 0;
+  position: static;
+  display: block;
+  transform: initial;
+}
