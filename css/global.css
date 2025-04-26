@@ -9,6 +9,14 @@
     --cl-ac-hv: #44ccff;
 }
 
+@font-face {
+  font-family: 'Poppins';
+  src: url('https://fonts.gstatic.com/s/poppins/v15/pxiFyp8kv8JHgFVrJJfecw.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 @keyframes fade-show {
   from {
     transform: scale(0.75);
@@ -31,6 +39,7 @@ html {
 body {
     height: 100vh;
     margin: 0;
+    font-family: 'Poppins', Arial, sans-serif;
     background-image: linear-gradient(
         to bottom right,
         var(--cl-pr-hv),
@@ -203,4 +212,4 @@ footer.page label {
 
 .italic {
   font-style: italic;
-}
+    }
