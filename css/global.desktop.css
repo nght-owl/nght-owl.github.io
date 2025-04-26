@@ -1,0 +1,58 @@
+header.page h1 {
+    width: 25%;
+    text-align: center;
+}
+
+header.page h1 i {
+  display: none;
+}
+
+header.page nav {
+    max-width: 25%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+header.page ul {
+    column-gap: 1rem;
+}
+
+header.page hr {
+    display: none;
+}
+
+.page-header.sublist {
+  position: relative;
+  background-color: var(--cl-pr);
+}
+
+.page-header.sublist-items {
+  padding: 1rem;
+  border-radius: 0.5rem;
+  top: 0;
+  right: 100%;
+  display: none;
+  position: absolute;
+  background-color: inherit;
+  transform: translateX(-2rem);
+}
+
+.page-header.sublist:focus-within .sublist-items {
+  display: flex;
+}
+
+.page-header.sublist ul {
+  min-width: 200px;
+  flex-direction: column;
+}
+
+.page-header.sublist a {
+  width: 100%;
+  display: block;
+}
+
+.panel {
+  max-width: 700px;
+}

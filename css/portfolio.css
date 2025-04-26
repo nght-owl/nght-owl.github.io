@@ -1,1 +1,18 @@
+#toggle--welcome:checked ~ main.page #panel--welcome,
+#toggle--overview:checked ~ main.page #panel--overview,
+#toggle--project:checked ~ main.page #panel--project,
+#toggle--contact:checked ~ main.page #panel--contact {
+  display: block;
+  animation: fade-show 0.2s ease-in-out;
+}
 
+#toggle--overview:checked ~ footer.page label[for="toggle--overview"],
+#toggle--project:checked ~ footer.page label[for="toggle--project"],
+#toggle--contact:checked ~ footer.page label[for="toggle--contact"] {
+  background-color: var(--cl-ac);
+  animation: fade-show 0.2s ease-in-out;
+}
+
+#toggle--project:checked ~ main.page {
+  display: block;
+}
