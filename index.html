@@ -43,11 +43,10 @@
   <script>
     const getTheme = () => localStorage.getItem("theme");
     const toggleTheme = (toggle) => {
-      console.log({ toggle })
-      if(toggle) localStorage.setItem('theme', getTheme() === 'dark' ? 'light' : 'dark');
+      if(toggle) localStorage.setItem('theme', getTheme() !== 'dark' ? 'dark' : 'light');
       document.body.classList.toggle(
         'dark',
-        getTheme() === 'dark'
+        getTheme() !== 'light'
       );
     };
 
@@ -96,8 +95,8 @@
         <a class="button" href="mailto:nghtowldev01@gmail.com" target="_blank">Contact Me</a>
       </div>
       <div class="home__social">
-        <a class="home__social-icon" href="https://github.com/nght-owl"><i class="bx bxl-github"></i></a>
-        <a class="home__social-icon" href="https://nght-owl.github.io"><i class="bx bx-world"></i></a>
+        <a class="home__social-icon" href="https://github.com/nght-owl" alt="NightOwl's GitHub"><i class="bx bxl-github"></i></a>
+        <a class="home__social-icon" href="https://nght-owl.github.io" alt="NightOwl's Personal Website"><i class="bx bx-world"></i></a>
       </div>
     </section>
     <section class="about section section--grid" id="about">
@@ -194,7 +193,7 @@
         <h2 class="section__title">Works</h2>
         <div class="list--card">
           <div class="card">
-            <img class="card__image" src="/img/portfolio.png" />
+            <img class="card__image" src="/img/portfolio_preview.png" aria-label="Portfolio Project Preview" />
             <h2>Portfolio</h2>
             <p>This is my portfolio; this website.</p>
           </div>
@@ -212,8 +211,8 @@
       <div class="footer__metadata">
         <h2 class="footer__title">NightOwl</h2>
         <div class="footer__social">
-          <a class="footer__social-icon" href="https://github.com/nght-owl"><i class="bx bxl-github"></i></a>
-          <a class="footer__social-icon" href="https://nght-owl.github.io"><i class="bx bx-world"></i></a>
+          <a class="footer__social-icon" href="https://github.com/nght-owl" alt="NightOwl's GitHub"><i class="bx bxl-github"></i></a>
+          <a class="footer__social-icon" href="https://nght-owl.github.io" alt="NightOwl's Personal Website"><i class="bx bx-world"></i></a>
         </div>
         <p class="footer__copyright">© NightOwl, all rights reserved.</p>
       </div>
@@ -224,7 +223,7 @@
     </div>
   </footer>
   
-  <script src="https://unpkg.com/scrollreveal"></script>
+  <script src="https://unpkg.com/scrollreveal@4.0.9/dist/scrollreveal.min.js"></script>
   <script>
     const sections = document.querySelectorAll('section[id]');
     const scrollActive = () => {
@@ -243,17 +242,21 @@
     }
     window.addEventListener('scroll', scrollActive)
 
-    const sr = ScrollReveal({
-      origin: 'top',
-      distance: '60px',
-      duration: 2000,
-      delay: 200,
-      reset: true
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        const sr = new ScrollReveal({
+          origin: 'top',
+          distance: '60px',
+          duration: 2000,
+          delay: 0,
+          reset: true
+        });
+        
+        sr.reveal('.home__welcome, .section__subtitle', {});
+        sr.reveal('.about__desc', { delay: 400 });
+        sr.reveal('.home__social-icon, .skills__skill, .card', { interval: 200 });
+      }, 200);
     });
-    
-    sr.reveal('.home__welcome, .section__subtitle', {});
-    sr.reveal('.about__desc', { delay: 400 });
-    sr.reveal('.home__social-icon, .skills__skill, .card', { interval: 200 });
   </script>
 </body>
 </html>
