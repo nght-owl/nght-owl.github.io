@@ -1,114 +1,259 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en-US">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="description" content="NightOwl's Portfolio Page" />
-    <meta name="author" content="NightOwl" />
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="description" content="NightOwl's Portfolio Page" />
+  <meta name="author" content="NightOwl" />
   
-    <title>NightOwl's Frontline</title>
-    <!--
+  <title>NightOwl's Portfolio</title>
+  <!--
       TODO: Fill icons when I already have the icons
       <link rel="icon" href="/favicon.ico" />
       <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     -->
-   
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
-    <link rel="preload" as="style" type="text/css" href="/css/global.css" onload="this.onload = null; this.rel = 'stylesheet';" />
-    <link rel="preload" as="style" type="text/css" href="/css/portfolio.css" onload="this.onload = null; this.rel = 'stylesheet';" />
-    <link rel="preload" as="style" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" onload="this.onload = null; this.rel = 'stylesheet';" />
-    <!--
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
+  <link rel="preload" as="style" type="text/css" href="/css/home.css"
+                                                                                                                          onload="this.onload = null; this.rel = 'stylesheet';" />
+  <link rel="preload" as="style" type="text/css" href="https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css"
+                                                                                                                          onload="this.onload = null; this.rel = 'stylesheet';" />
+  <!--
     TODO: Uncomment when it's implemented
     <script async src="/js/locale/portfolio.js"></script>
     -->
-    <noscript>
-      <link rel="stylesheet" type="text/css" href="/css/global.css" />
-      <link rel="stylesheet" type="text/css" href="/css/rich-text.css" />
-      <link rel="stylesheet" type="text/css" href="/css/portfolio.css" />
-      <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-    </noscript>
-    
-    <link rel="stylesheet" type="text/css" href="/css/global.mobile.css" media="(max-width: 754px)" />
-    <link rel="stylesheet" type="text/css" href="/css/global.desktop.css" media="(min-width: 755px)" />
-    
-    <meta property="og:title" content="NightOwl's Frontline" />
-    <meta property="og:description" content="Hi! I'm NightOwl, a programmer! And this is my portfolio page." />
-    <meta property="og:url" content="https://nght-owl.github.io" />
+  <noscript>
+    <link rel="stylesheet" type="text/css" href="/css/home.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css" />
+  </noscript>
+  
+  <link rel="stylesheet" type="text/css" href="/css/home.mobile.css" media="(max-width: 774px)" />
+  <link rel="stylesheet" type="text/css" href="/css/home.desktop.css" media="(min-width: 775px)" />
+  
+  <meta property="og:title" content="NightOwl's Frontline" />
+  <meta property="og:description" content="Hi! I'm NightOwl, a programmer! And this is my portfolio page." />
+  <meta property="og:url" content="https://nght-owl.github.io" />
 </head>
-<body class="site--body">
+
+<body>
+  <!-- <script src="https://cdn.jsdelivr.net/npm/eruda@2" onload="eruda.init();"></script> -->
   <script>
     const getTheme = () => localStorage.getItem("theme");
-    const toggleTheme = () => { document.body.classList.toggle("dark", getTheme("theme") === "dark"); }
-    
-    toggleTheme();
+    const toggleTheme = (toggle) => {
+      console.log({ toggle })
+      if(toggle) localStorage.setItem('theme', getTheme() === 'dark' ? 'light' : 'dark');
+      document.body.classList.toggle(
+        'dark',
+        getTheme() === 'dark'
+      );
+    };
+
+    toggleTheme(false);
   </script>
   
-  <input type="checkbox" id="toggle--nav" hidden />
-  <header class="site--header">
-    <span class="site--profile">
-      <span class="site--header-branding">NightOwl</span>
-      <span class="site--header-title">Portfolio</span>
-    </span>
-    <span class="site--toggles">
-      <label onclick="localStorage.setItem('theme', getTheme() === 'light' ? 'dark' : 'light'); toggleTheme();"><i class="fa fa-adjust"></i></label>
-      <label class="mobile-only" for="toggle--nav"><i class="fa fa-bars"></i></label>
-    </span>
-  </header>
-  <aside class="site--nav">
-    <div class="nav--pages">
-      <nav class="nav--interpage">
-        <ul>
-          <li><a href="/" class="active">Home</a></li>
-          <li><a href="/blog">Blog</a></li>
+  <header class="layout__header">
+    <nav class="nav">
+      <div class="nav__title">
+        <a href="/" class="nav__author">NightOwl</a>
+        <a href="#" class="nav__page-title">Portfolio</a>
+      </div>
+      
+      <div class="nav__menu" id="nav-menu">
+        <ul class="nav__list">
+          <li class="nav__item nav__item--active">
+            <a href="#home" class="nav__link" id="link-home">Home</a>
+          </li>
+          <li class="nav__item">
+            <a href="#about" class="nav__link" id="link-about">About</a>
+          </li>
+          <li class="nav__item">
+            <a href="#skills" class="nav__link" id="link-skills">Skills</a>
+          </li>
+          <li class="nav__item">
+            <a href="#work" class="nav__link" id="link-work">Work</a>
+          </li>
         </ul>
-      </nav>
-      <hr />
-      <nav class="nav--anchor">
-        <ul>
-          <li><a href="#">Not yet lol</a></li>
-        </ul>
-      </nav>
-    </div>
-    <nav class="nav--personal">
-      <a href="https://github.com/nght-owl"><i class="fa fa-github" style="color: white;"></i>GitHub</a>
-      <a href="https://nght-owl.github.io">This Site</a>
+      </div>
+      
+      <div class="nav__toggles">
+        <div class="nav__toggle" id="nav-toggle">
+          <i class="bx bx-menu"></i>
+        </div>
+        <div class="nav__toggle" id="theme-toggle" onclick="toggleTheme(true);">
+          <i class="bx bx-adjust"></i>
+        </div>
+      </div>
     </nav>
-  </aside>
-  <main class="site--main">
-    <section id="panel--overview" class="panel">
-      <h2>Overview</h2>
-      <p>
-        I'm a builder by nature. I take ideas, break them down, and rebuild them into code that works. I specialize in full-stack development, clean architecture, and shipping fast. I believe in automation, open source, and writing code that others <span class="italic">don’t</span> hate reading.
-      </p>
-      <h3>Skills</h3>
-      <ul>
-        <li>HTML, CSS, JS (frontend)</li>
-        <li>Node.JS</li>
-        <li>C/C++</li>
-      </ul>
+    <script async src="/js/toggle.js"></script>
+  </header>
+  <main class="layout__main">
+    <section class="home" id="home">
+      <div class="home__welcome">
+        <h1 class="home__title">Hi,<br />I'm <span style="color: var(--accent-color-dark);">NightOwl</span>.<br />Your favorite developer.</h1>
+        <a class="button" href="mailto:nghtowldev01@gmail.com" target="_blank">Contact Me</a>
+      </div>
+      <div class="home__social">
+        <a class="home__social-icon" href="https://github.com/nght-owl"><i class="bx bxl-github"></i></a>
+        <a class="home__social-icon" href="https://nght-owl.github.io"><i class="bx bx-world"></i></a>
+      </div>
     </section>
-    <section id="panel--project" class="panel">
-      <h2>Projects</h2>
-      <ul>
-        <!-- TODO: Fill Projects -->
-      </ul>
+    <section class="about section section--grid" id="about">
+      <div class="dummy"></div>
+      <div>
+        <h2 class="section__title">About</h2>
+        <div>
+          <h2 class="section__subtitle">I am NightOwl.</h2>
+          <p class="about__desc">I can code many things,<br />ranging from a simple web development to a complex framework.<br />Though, the limitation that I have: Not having a Laptop, makes it impossible.</p>
+        </div>
+      </div>
     </section>
-    <section id="panel--contact" class="panel">
-      <h2>Contact</h2>
-      <form action="mailto:nightowldev01@gmail.com" method="get" enctype="text/plain" class="mailto">
-        <fieldset class="mail--subject">
-          <legend>Subject</legend>
-          <input name="subject" type="text" placeholder="Re:" required />
-        </fieldset>
-        <fieldset class="mail--body">
-          <legend>Message</legend>
-          <textarea name="body" placeholder="Enter your message." required></textarea>
-        </fieldset>
-        <button class="mail--submit" type="submit">Submit</button>
-      </form>
+    <section class="skills section section--grid" id="skills">
+      <div>
+        <h2 class="section__title">Skills</h2>
+        <div class="skills__list">
+          <details class="skills__skill">
+            <summary class="skills__skill-title">
+              <div class="skill__metadata">
+                <span class="skill__name"><i class="bx bxl-html5 skill__icon"></i>HTML5</span>
+                <span class="skill__percentage">95%</span>
+              </div>
+              <progress class="skill__progress" value="95" max="100"></progress>
+            </summary>
+            <p class="skill__desc">HTML5 is the latest major version of the HTML standard, designed to structure and present content on the web more efficiently. It introduced new semantic elements (like &lt;article&gt;, &lt;section&gt;, &lt;header&gt;), built-in media support with &lt;audio&gt; and &lt;video&gt;, and powerful APIs for things like offline storage, drag-and-drop, geolocation, and canvas-based graphics. It also dropped outdated tags (like &lt;font&gt;) and emphasized cleaner, more accessible, and mobile-friendly code. In short: it made the web smarter, faster, and more app-like.</p>
+          </details>
+          <details class="skills__skill">
+            <summary class="skills__skill-title">
+              <div class="skill__metadata">
+                <span class="skill__name"><i class="bx bxl-css3 skill__icon"></i>CSS3</span>
+                <span class="skill__percentage">76%</span>
+              </div>
+              <progress class="skill__progress" value="76" max="100"></progress>
+            </summary>
+            <p class="skill__desc">CSS3 is the latest evolution of Cascading Style Sheets, bringing powerful features that let developers create modern, responsive, and visually rich websites without relying heavily on JavaScript or images. It introduced modules like Flexbox and Grid for layout control, transitions and animations for smoother interactions, media queries for responsive design, and custom properties (variables) for cleaner, more maintainable code.</p>
+          </details>
+          <details class="skills__skill">
+            <summary class="skills__skill-title">
+              <div class="skill__metadata">
+                <span class="skill__name"><i class="bx bxl-javascript skill__icon"></i>JS</span>
+                <span class="skill__percentage">85%</span>
+              </div>
+              <progress class="skill__progress" value="85" max="100"></progress>
+            </summary>
+            <p class="skill__desc">JavaScript is the dynamic scripting language of the web, designed to bring interactivity, logic, and behavior to static HTML/CSS pages. It's used for everything from handling user input and updating content in real-time to building full-scale web apps, with powerful APIs, event-driven architecture, and widespread support across all modern browsers. With the rise of frameworks like React and Node.js, JavaScript has become the backbone of both frontend and backend development.</p>
+          </details>
+          <details class="skills__skill">
+            <summary class="skills__skill-title">
+              <div class="skill__metadata">
+                <span class="skill__name"><i class="bx bx-code skill__icon"></i>C</span>
+                <span class="skill__percentage">68%</span>
+              </div>
+              <progress class="skill__progress" value="68" max="100"></progress>
+            </summary>
+            <p class="skill__desc">C is a low-level, high-performance programming language that gives you direct control over memory and system resources. Originally developed in the 1970s, it became the backbone of modern operating systems, embedded systems, and tools like compilers. With its minimal runtime and deterministic behavior, C is often chosen when speed, efficiency, and hardware-level access matter. It’s powerful but unforgiving — you manage your own memory, deal with pointers, and take full responsibility for safety.</p>
+          </details>
+          <details class="skills__skill">
+            <summary class="skills__skill-title">
+              <div class="skill__metadata">
+                <span class="skill__name"><i class="bx bx-code-curly skill__icon"></i>C++</span>
+                <span class="skill__percentage">12%</span>
+              </div>
+              <progress class="skill__progress" value="12" max="100"></progress>
+            </summary>
+            <p class="skill__desc">C++ builds on C by adding object-oriented programming, templates, exception handling, and more — effectively blending low-level control with high-level abstractions. It lets you write both system-level code and complex software architectures in the same language. Used in everything from game engines and real-time simulations to finance and high-performance apps, C++ is known for its performance, complexity, and massive feature set. It’s like driving a race car: powerful, fast, but it’ll bite you if you lose focus.</p>
+          </details>
+          <details class="skills__skill">
+            <summary class="skills__skill-title">
+              <div class="skill__metadata">
+                <span class="skill__name"><i class="bx bx-code skill__icon"></i>Java</span>
+                <span class="skill__percentage">78%</span>
+              </div>
+              <progress class="skill__progress" value="78" max="100"></progress>
+            </summary>
+            <p class="skill__desc">Java is a high-level, object-oriented language designed to be portable, secure, and easy to run across platforms — “write once, run anywhere.” It compiles to bytecode that runs on the Java Virtual Machine (JVM), making it platform-independent. Java has strict typing, garbage collection, and a massive standard library, which made it a go-to for enterprise software, Android development, and big systems. It's verbose but stable, with a strong ecosystem and long-term maintainability at its core.</p>
+          </details>
+          <details class="skills__skill">
+            <summary class="skills__skill-title">
+              <div class="skill__metadata">
+                <span class="skill__name"><i class="bx bx-code-alt skill__icon"></i>Python</span>
+                <span class="skill__percentage">5%</span>
+              </div>
+              <progress class="skill__progress" value="5" max="100"></progress>
+            </summary>
+            <p class="skill__desc">Python is a high-level, interpreted language known for its simplicity, readability, and massive versatility. With clean, human-like syntax, it’s beginner-friendly but powerful enough for professionals building everything from web apps and automation scripts to AI models and scientific computing. Python thrives on an enormous ecosystem of libraries and frameworks (like Django, NumPy, and TensorFlow), and its “batteries included” philosophy makes rapid development feel effortless. It trades raw speed for ease of use — but in the right hands, it’s a damn sharp tool.</p>
+          </details>
+        </div>
+      </div>
+      <div class="dummy"></div>
+    </section>
+    <section class="work section section--grid" id="work">
+      <div class="dummy"></div>
+      <div>
+        <h2 class="section__title">Works</h2>
+        <div class="list--card">
+          <div class="card">
+            <img class="card__image" src="/img/portfolio.png" />
+            <h2>Portfolio</h2>
+            <p>This is my portfolio; this website.</p>
+          </div>
+        </div>
+      </div>
     </section>
   </main>
+  <footer class="layout__footer">
+    <div class="footer__container">
+      <div class="footer__links footer__links--left">
+        <a href="/blog.html">Blog</a>
+        <a href="/journal.html">Journal</a>
+        <a href="/diary.html">My Diary</a>
+      </div>
+      <div class="footer__metadata">
+        <h2 class="footer__title">NightOwl</h2>
+        <div class="footer__social">
+          <a class="footer__social-icon" href="https://github.com/nght-owl"><i class="bx bxl-github"></i></a>
+          <a class="footer__social-icon" href="https://nght-owl.github.io"><i class="bx bx-world"></i></a>
+        </div>
+        <p class="footer__copyright">© NightOwl, all rights reserved.</p>
+      </div>
+      <div class="footer__links footer__links--right">
+        <a href="/todolist.html">TODO List</a>
+        <a href="/#">Placeholder</a>
+      </div>
+    </div>
+  </footer>
+  
+  <script src="https://unpkg.com/scrollreveal"></script>
+  <script>
+    const sections = document.querySelectorAll('section[id]');
+    const scrollActive = () => {
+      const scrollDown = window.scrollY;
+      
+      sections.forEach((current) => {
+        const sectionHeight = current.offsetHeight;
+        const sectionTop = current.offsetTop - 100;
+        const sectionId = current.getAttribute('id');
+        const sectionLink = document.getElementById(`link-${sectionId}`);
+        
+        if(scrollDown > sectionTop && scrollDown <= sectionTop + sectionHeight) {
+          openNav(sectionLink);
+        }
+      })
+    }
+    window.addEventListener('scroll', scrollActive)
+
+    const sr = ScrollReveal({
+      origin: 'top',
+      distance: '60px',
+      duration: 2000,
+      delay: 200,
+      reset: true
+    });
+    
+    sr.reveal('.home__welcome, .section__subtitle', {});
+    sr.reveal('.about__desc', { delay: 400 });
+    sr.reveal('.home__social-icon, .skills__skill, .card', { interval: 200 });
+  </script>
 </body>
 </html>
