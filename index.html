@@ -17,24 +17,20 @@
   
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
-  <link rel="preload" as="style" type="text/css" href="/css/home.css"
-                                                                                                                          onload="this.onload = null; this.rel = 'stylesheet';" />
-  <link rel="preload" as="style" type="text/css" href="https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css"
-                                                                                                                          onload="this.onload = null; this.rel = 'stylesheet';" />
-  <!--
-    TODO: Uncomment when it's implemented
-    <script async src="/js/locale/portfolio.js"></script>
-    -->
+  <link rel="preload" as="style" type="text/css" href="/css/global.css" onload="this.onload = null; this.rel = 'stylesheet';" />
+  <link rel="preload" as="style" type="text/css" href="/css/home.css" onload="this.onload = null; this.rel = 'stylesheet';" />
+  <link rel="preload" as="style" type="text/css" href="https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css" onload="this.onload = null; this.rel = 'stylesheet';" />
+  
+  <script async data-i18n-add="home:home,language_metadata:lang" src="/js/locale.js"></script>
+  
   <noscript>
+    <link rel="stylesheet" type="text/css" href="/css/global.css" />
     <link rel="stylesheet" type="text/css" href="/css/home.css" />
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css" />
   </noscript>
   
-  <link rel="stylesheet" type="text/css" href="/css/home.mobile.css" media="(max-width: 774px)" />
-  <link rel="stylesheet" type="text/css" href="/css/home.desktop.css" media="(min-width: 775px)" />
-
-  <meta name="google-site-verification" content="ybFYqjdr5BOwZmc2RrYvwUbkWDeaU0R_D6H-RtgI7ck" />
-  <meta name="google-site-verification" content="kv5kph3WVS9WAc1Q_xO1usHIYUv0Iebzbirare3LNuo" />
+  <link rel="stylesheet" type="text/css" href="/css/global_max768.css" media="(max-width: 768px)" />
+  <link rel="stylesheet" type="text/css" href="/css/global_min768.css" media="(min-width: 768px)" />
   
   <meta property="og:title" content="NightOwl's Frontline" />
   <meta property="og:description" content="Hi! I'm NightOwl, a programmer! And this is my portfolio page." />
@@ -42,7 +38,7 @@
 </head>
 
 <body>
-  <!-- <script src="https://cdn.jsdelivr.net/npm/eruda@2" onload="eruda.init();"></script> -->
+  <script src="https://cdn.jsdelivr.net/npm/eruda@2" onload="eruda.init();"></script>
   <script>
     const getTheme = () => localStorage.getItem("theme");
     const toggleTheme = (toggle) => {
@@ -66,16 +62,20 @@
       <div class="nav__menu" id="nav-menu">
         <ul class="nav__list">
           <li class="nav__item nav__item--active">
-            <a href="#home" class="nav__link" id="link-home">Home</a>
+            <a href="#home" class="nav__link" id="link-home" data-i18n-global="home">Home</a>
           </li>
           <li class="nav__item">
-            <a href="#about" class="nav__link" id="link-about">About</a>
+            <a href="#about" class="nav__link" id="link-about" data-i18n-global="about">About</a>
           </li>
           <li class="nav__item">
-            <a href="#skills" class="nav__link" id="link-skills">Skills</a>
+            <a href="#skills" class="nav__link" id="link-skills" data-i18n-global="skills">Skills</a>
           </li>
           <li class="nav__item">
-            <a href="#work" class="nav__link" id="link-work">Work</a>
+            <a href="#work" class="nav__link" id="link-work" data-i18n-global="work">Work</a>
+          </li>
+          <li role="button" tabindex="-1" class="nav__item nav__item--language-selector">
+            <span class="nav__link" id="language-active">en-US</span>
+            <div class="language__selector" id="language-selector"></div>
           </li>
         </ul>
       </div>
@@ -94,8 +94,8 @@
   <main class="layout__main">
     <section class="home" id="home">
       <div class="home__welcome">
-        <h1 class="home__title">Hi,<br />I'm <span style="color: var(--accent-color-dark);">NightOwl</span>.<br />Your favorite developer.</h1>
-        <a class="button" href="mailto:nghtowldev01@gmail.com" target="_blank">Contact Me</a>
+        <h1 class="home__title"><span data-i18n-home="hello">Hi</span>,<br /><span data-i18n-home="welcomeMe">I'm</span> <span style="color: var(--accent-color-dark);">NightOwl</span>.<br /><span data-i18n-home="welcomeMessage">Your favorite developer.</span></h1>
+        <a class="button" href="mailto:nghtowldev01@gmail.com" target="_blank" data-i18n-global="contactMe">Contact Me</a>
       </div>
       <div class="home__social">
         <a class="home__social-icon" href="https://github.com/nght-owl" alt="NightOwl's GitHub"><i class="bx bxl-github"></i></a>
@@ -105,16 +105,16 @@
     <section class="about section section--grid" id="about">
       <div class="dummy"></div>
       <div>
-        <h2 class="section__title">About</h2>
+        <h2 class="section__title" data-i18n-global="about">About</h2>
         <div>
-          <h2 class="section__subtitle">I am NightOwl.</h2>
-          <p class="about__desc">I can code many things,<br />ranging from a simple web development to a complex framework.<br />Though, the limitation that I have: Not having a Laptop, makes it impossible.</p>
+          <h2 class="section__subtitle" data-i18n-home="aboutTitle">I am NightOwl.</h2>
+          <p class="about__desc" data-i18n-home="aboutDesc">I can code many things, ranging from a simple web development to a complex framework. Though, the limitation that I have: Not having a Laptop, makes it impossible.</p>
         </div>
       </div>
     </section>
     <section class="skills section section--grid" id="skills">
       <div>
-        <h2 class="section__title">Skills</h2>
+        <h2 class="section__title" data-i18n-global="skills">Skills</h2>
         <div class="skills__list">
           <details class="skills__skill">
             <summary class="skills__skill-title">
@@ -124,7 +124,7 @@
               </div>
               <progress class="skill__progress" value="95" max="100"></progress>
             </summary>
-            <p class="skill__desc">HTML5 is the latest major version of the HTML standard, designed to structure and present content on the web more efficiently. It introduced new semantic elements (like &lt;article&gt;, &lt;section&gt;, &lt;header&gt;), built-in media support with &lt;audio&gt; and &lt;video&gt;, and powerful APIs for things like offline storage, drag-and-drop, geolocation, and canvas-based graphics. It also dropped outdated tags (like &lt;font&gt;) and emphasized cleaner, more accessible, and mobile-friendly code. In short: it made the web smarter, faster, and more app-like.</p>
+            <p class="skill__desc" data-i18n-lang="html5.desc">HTML5 is the latest major version of the HTML standard, designed to structure and present content on the web more efficiently. It introduced new semantic elements (like &lt;article&gt;, &lt;section&gt;, &lt;header&gt;), built-in media support with &lt;audio&gt; and &lt;video&gt;, and powerful APIs for things like offline storage, drag-and-drop, geolocation, and canvas-based graphics. It also dropped outdated tags (like &lt;font&gt;) and emphasized cleaner, more accessible, and mobile-friendly code. In short: it made the web smarter, faster, and more app-like.</p>
           </details>
           <details class="skills__skill">
             <summary class="skills__skill-title">
@@ -134,7 +134,7 @@
               </div>
               <progress class="skill__progress" value="76" max="100"></progress>
             </summary>
-            <p class="skill__desc">CSS3 is the latest evolution of Cascading Style Sheets, bringing powerful features that let developers create modern, responsive, and visually rich websites without relying heavily on JavaScript or images. It introduced modules like Flexbox and Grid for layout control, transitions and animations for smoother interactions, media queries for responsive design, and custom properties (variables) for cleaner, more maintainable code.</p>
+            <p class="skill__desc" data-i18n-lang="css3.desc">CSS3 is the latest evolution of Cascading Style Sheets, bringing powerful features that let developers create modern, responsive, and visually rich websites without relying heavily on JavaScript or images. It introduced modules like Flexbox and Grid for layout control, transitions and animations for smoother interactions, media queries for responsive design, and custom properties (variables) for cleaner, more maintainable code.</p>
           </details>
           <details class="skills__skill">
             <summary class="skills__skill-title">
@@ -144,7 +144,7 @@
               </div>
               <progress class="skill__progress" value="85" max="100"></progress>
             </summary>
-            <p class="skill__desc">JavaScript is the dynamic scripting language of the web, designed to bring interactivity, logic, and behavior to static HTML/CSS pages. It's used for everything from handling user input and updating content in real-time to building full-scale web apps, with powerful APIs, event-driven architecture, and widespread support across all modern browsers. With the rise of frameworks like React and Node.js, JavaScript has become the backbone of both frontend and backend development.</p>
+            <p class="skill__desc" data-i18n-lang="js.desc">JavaScript is the dynamic scripting language of the web, designed to bring interactivity, logic, and behavior to static HTML/CSS pages. It's used for everything from handling user input and updating content in real-time to building full-scale web apps, with powerful APIs, event-driven architecture, and widespread support across all modern browsers. With the rise of frameworks like React and Node.js, JavaScript has become the backbone of both frontend and backend development.</p>
           </details>
           <details class="skills__skill">
             <summary class="skills__skill-title">
@@ -154,7 +154,7 @@
               </div>
               <progress class="skill__progress" value="68" max="100"></progress>
             </summary>
-            <p class="skill__desc">C is a low-level, high-performance programming language that gives you direct control over memory and system resources. Originally developed in the 1970s, it became the backbone of modern operating systems, embedded systems, and tools like compilers. With its minimal runtime and deterministic behavior, C is often chosen when speed, efficiency, and hardware-level access matter. It’s powerful but unforgiving — you manage your own memory, deal with pointers, and take full responsibility for safety.</p>
+            <p class="skill__desc" data-i18n-lang="c.desc">C is a low-level, high-performance programming language that gives you direct control over memory and system resources. Originally developed in the 1970s, it became the backbone of modern operating systems, embedded systems, and tools like compilers. With its minimal runtime and deterministic behavior, C is often chosen when speed, efficiency, and hardware-level access matter. It’s powerful but unforgiving — you manage your own memory, deal with pointers, and take full responsibility for safety.</p>
           </details>
           <details class="skills__skill">
             <summary class="skills__skill-title">
@@ -164,7 +164,7 @@
               </div>
               <progress class="skill__progress" value="12" max="100"></progress>
             </summary>
-            <p class="skill__desc">C++ builds on C by adding object-oriented programming, templates, exception handling, and more — effectively blending low-level control with high-level abstractions. It lets you write both system-level code and complex software architectures in the same language. Used in everything from game engines and real-time simulations to finance and high-performance apps, C++ is known for its performance, complexity, and massive feature set. It’s like driving a race car: powerful, fast, but it’ll bite you if you lose focus.</p>
+            <p class="skill__desc" data-i18n-lang="cpp.desc">C++ builds on C by adding object-oriented programming, templates, exception handling, and more — effectively blending low-level control with high-level abstractions. It lets you write both system-level code and complex software architectures in the same language. Used in everything from game engines and real-time simulations to finance and high-performance apps, C++ is known for its performance, complexity, and massive feature set. It’s like driving a race car: powerful, fast, but it’ll bite you if you lose focus.</p>
           </details>
           <details class="skills__skill">
             <summary class="skills__skill-title">
@@ -174,7 +174,7 @@
               </div>
               <progress class="skill__progress" value="78" max="100"></progress>
             </summary>
-            <p class="skill__desc">Java is a high-level, object-oriented language designed to be portable, secure, and easy to run across platforms — “write once, run anywhere.” It compiles to bytecode that runs on the Java Virtual Machine (JVM), making it platform-independent. Java has strict typing, garbage collection, and a massive standard library, which made it a go-to for enterprise software, Android development, and big systems. It's verbose but stable, with a strong ecosystem and long-term maintainability at its core.</p>
+            <p class="skill__desc" data-i18n-lang="java.desc">Java is a high-level, object-oriented language designed to be portable, secure, and easy to run across platforms — “write once, run anywhere.” It compiles to bytecode that runs on the Java Virtual Machine (JVM), making it platform-independent. Java has strict typing, garbage collection, and a massive standard library, which made it a go-to for enterprise software, Android development, and big systems. It's verbose but stable, with a strong ecosystem and long-term maintainability at its core.</p>
           </details>
           <details class="skills__skill">
             <summary class="skills__skill-title">
@@ -184,7 +184,7 @@
               </div>
               <progress class="skill__progress" value="5" max="100"></progress>
             </summary>
-            <p class="skill__desc">Python is a high-level, interpreted language known for its simplicity, readability, and massive versatility. With clean, human-like syntax, it’s beginner-friendly but powerful enough for professionals building everything from web apps and automation scripts to AI models and scientific computing. Python thrives on an enormous ecosystem of libraries and frameworks (like Django, NumPy, and TensorFlow), and its “batteries included” philosophy makes rapid development feel effortless. It trades raw speed for ease of use — but in the right hands, it’s a damn sharp tool.</p>
+            <p class="skill__desc" data-i18n-lang="py.desc">Python is a high-level, interpreted language known for its simplicity, readability, and massive versatility. With clean, human-like syntax, it’s beginner-friendly but powerful enough for professionals building everything from web apps and automation scripts to AI models and scientific computing. Python thrives on an enormous ecosystem of libraries and frameworks (like Django, NumPy, and TensorFlow), and its “batteries included” philosophy makes rapid development feel effortless. It trades raw speed for ease of use — but in the right hands, it’s a damn sharp tool.</p>
           </details>
         </div>
       </div>
@@ -193,12 +193,12 @@
     <section class="work section section--grid" id="work">
       <div class="dummy"></div>
       <div>
-        <h2 class="section__title">Works</h2>
+        <h2 class="section__title" data-i18n-global="work">Works</h2>
         <div class="list--card">
           <div class="card">
-            <img class="card__image" src="/img/portfolio_preview.png" aria-label="Portfolio Project Preview" />
-            <h2>Portfolio</h2>
-            <p>This is my portfolio; this website.</p>
+            <div class="card__image" role="img" aria-label="Portfolio Project Preview"></div>
+            <h2 data-i18n-home="projects.portfolio">Portfolio</h2>
+            <p data-i18n-home="projects.portfolioDesc">This is my portfolio; this website.</p>
           </div>
         </div>
       </div>
@@ -208,8 +208,8 @@
     <div class="footer__container">
       <div class="footer__links footer__links--left">
         <a href="/blog.html">Blog</a>
-        <a href="/journal.html">Journal</a>
-        <a href="/diary.html">My Diary</a>
+        <a href="/journal.html" data-i18n-global="journal">Journal</a>
+        <a href="/diary.html" data-i18n-global="diary">My Diary</a>
       </div>
       <div class="footer__metadata">
         <h2 class="footer__title">NightOwl</h2>
@@ -239,7 +239,7 @@
         const sectionLink = document.getElementById(`link-${sectionId}`);
         
         if(scrollDown > sectionTop && scrollDown <= sectionTop + sectionHeight) {
-          openNav(sectionLink);
+          if(!!openNav) openNav(sectionLink);
         }
       })
     }
