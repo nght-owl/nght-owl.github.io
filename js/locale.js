@@ -44,7 +44,7 @@ locale.reloadUnit = async function(unit) {
   return await fetch(`/locale/${filename}.json`)
     .then((res) => res.json())
     .then((res) => {
-      locale.unitsData = res;
+      locale.unitsData[alias] = res;
       locale.loadedUnits.push(alias);
     });
 };
@@ -90,7 +90,7 @@ locale.translateUnit = async function(unitName) {
 locale.translate = function() {
   if(locale.loadedUnits.length < locale.loadData.length) return;
   for(const unit of locale.loadedUnits)
-    locale.translateUnit(unit);
+    locale.translateUnit(unit[1]);
 };
 
 locale.updateUserPreference();
