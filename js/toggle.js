@@ -15,7 +15,7 @@ window.addEventListener('DOMContentLoaded', function() {
     activeMenu = el;
   }
   
-  navMenu.addEventListener('click', function() {
+  navMenu.addEventListener('click', function(ev) {
     const el = ev.srcElement;
     if(el === activeMenu) return;
     
