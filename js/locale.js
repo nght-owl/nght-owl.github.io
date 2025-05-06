@@ -53,11 +53,14 @@ locale.translateUnit = async function(unitName) {
   const memoize = {};
   const data = locale.unitsData[unitName];
   
-  if(data.skip)
+  if(data.skip) {
+    console.info(`[Localizator] Skipped unit ${unitName}.`);
     return;
+  }
   
   const capitalizedUnitName = unitName[0].toUpperCase() + unitName.slice(1);
   const elements = document.querySelectorAll(`[data-i18n-${unitName}]`);
+  console.info(`[Localizator] Elements queried, ${elements.length} are founds.`);
   
   for(const element of elements) {
     const key = element.dataset[`i18n${capitalizedUnitName}`];
@@ -85,6 +88,8 @@ locale.translateUnit = async function(unitName) {
     else if(textPosition === 'textContent')
       el.textContent = memoize[key];
   }
+  
+  console.log(memoize);
 };
 
 locale.translate = function() {
