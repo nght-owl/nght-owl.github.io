@@ -18,7 +18,7 @@ const locale = {
     .map(pair => pair.split(':')),
   loadedUnits: [],
   unitsData: {},
-  unitsPromise: null,
+  unitsPromise: [],
   userPreferences: []
 };
 
@@ -89,7 +89,7 @@ locale.translateUnit = async function(unitName) {
 
 locale.translate = function() {
   if(locale.loadedUnits.length < locale.loadData.length) return;
-  for(const unit of locale.loadedData)
+  for(const unit of locale.loadedUnits)
     locale.translateUnit(unit);
 };
 
