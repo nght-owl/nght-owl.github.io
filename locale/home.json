@@ -1,0 +1,8 @@
+{
+  "version": 1,
+  "keys": ["hello", "welcomeMe", "welcomeMessage", "aboutTitle", "aboutDesc", "projects.portfolio", "projects.portfolioDesc"],
+  "en": ["Hi", "I'm", "Your favorite developer", "I'm NightOwl", "I can code many things, ranging from a simple website development to a complex framework. Though, the limitation that I have: Not having a Laptop, makes it impossible for me yet.", "Portfolio", "This is my portfolio; my website"],
+  "en-us": "en",
+  "en-br": "en",
+  "id-id": ["Hai", "Aku", "Developer kesukaanmu", "Aku NightOwl", "Aku bisa mengkode banyak hal, dari sebuah pembuatan situs web yang simpel ke framework yang rumit. Meskipun, karena kendala: tidak punya Laptop, membuatnya mustahil bagiku saat ini.", "Portfolio", "Ini adalah portfolioku, situsku"]
+}
