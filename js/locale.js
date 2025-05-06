@@ -15,23 +15,25 @@ const locale = {
   },
   loadData:
     ['base:global', ...document.currentScript.dataset.i18nAdd.split(',') || []]
-    .map(pair => [pair.split(':')]),
+    .map(pair => pair.split(':')),
   userPreferences: []
 };
 
 locale.updateUserPreference = () => {
   const fromLocalStorage = localStorage.getItem('language');
+  const preferences = [];
   
   if(fromLocalStorage)
-    locale.userPreferences = [fromLocalStorage];
-  else
-    locale.userPreferences = (navigator.languages || [navigator.language])
-      .map(value => value.toLowerCase());
+    preferences.push(fromLocalStorage.toLowerCase());
   
-  return locale.userPreferences;
+  preferences.concat(
+    (navigator.languages || [navigator.language])
+    .map(value => value.toLowerCase())
+  );
+  
+  locale.userPreferences = preferences;
+  return preferences;
 };
-
-locale.updateUserPreference();
 
 locale.translateUnit = async(unit) => {
   
