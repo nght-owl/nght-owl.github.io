@@ -18,7 +18,7 @@ const translateIDs = [];
 let languages =
     localStorage.getItem('language')
     ? [localStorage.getItem('language')]
-    : (navigator.languages || [navigator.language]).map(toLowerCase);
+    : (navigator.languages || [navigator.language]).map(t => t.toLowerCase());
 
 function translate(sourceID) {
   const map = {};
