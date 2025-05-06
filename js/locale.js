@@ -139,7 +139,7 @@ window.addEventListener('DOMContentLoaded', async function() {
     const len = values.length;
     let clone;
     for(let i = 0; i < len; ++i) {
-      clone = template.clone(true);
+      clone = template.cloneNode(true);
       clone.children[0].value = values[i];
       clone.children[1].innerText = titles[i];
       selector.appendChild(clone);
