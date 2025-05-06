@@ -221,6 +221,6 @@ window.addEventListener('DOMContentLoaded', function() {
 
 window.addEventListener('languagechange', function() {
   if(localStorage.getItem('language')) return;
-  languages = navigator.languages || [navigator.language].map(toLowerCase);
+  languages = navigator.languages || [navigator.language].map(t => t.toLowerCase());
   translateAll();
 });
