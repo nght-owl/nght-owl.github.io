@@ -1,0 +1,8 @@
+{
+  "version": 1,
+  "keys": ["home", "about", "skills", "work", "contactMe", "journal", "diary"],
+  "en": ["Home", "About", "Skills", "Work", "Contact Me", "Journal", "My Diary"],
+  "en-us": "en",
+  "en-br": "en",
+  "id-id": ["Beranda", "Tentang Aku", "Keahlian", "Proyek", "Panggil Aku", "Jurnal", "Diari"]
+}
