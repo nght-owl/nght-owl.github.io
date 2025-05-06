@@ -90,7 +90,7 @@ locale.translateUnit = async function(unitName) {
 locale.translate = function() {
   if(locale.loadedUnits.length < locale.loadData.length) return;
   for(const unit of locale.loadedUnits)
-    locale.translateUnit(unit[1]);
+    locale.translateUnit(unit);
 };
 
 locale.updateUserPreference();
