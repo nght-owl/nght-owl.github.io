@@ -8,6 +8,41 @@
  * 
  */
 
+const locale = {
+  languagesMetadata: {
+    value: ['en-us', 'en-br', 'id-id'],
+    title: ['English (US)', 'English (British)', 'Indonesian']
+  },
+  loadData:
+    ['base:global', ...document.currentScript.dataset.i18nAdd.split(',') || []]
+    .map(pair => [pair.split(':')]),
+  userPreferences: []
+};
+
+locale.updateUserPreference = () => {
+  const fromLocalStorage = localStorage.getItem('language');
+  
+  if(fromLocalStorage)
+    locale.userPreferences = [fromLocalStorage];
+  else
+    locale.userPreferences = (navigator.languages || [navigator.language])
+      .map(value => value.toLowerCase());
+  
+  return locale.userPreferences;
+};
+
+locale.updateUserPreference();
+
+locale.translateUnit = async(unit) => {
+  
+}
+
+locale.reloadUnit = async(unit) => {
+  
+}
+
+// REFACTOR. OLD CODE;
+
 const languageList = ['en-us', 'en-br', 'id-id'];
 const languageName = ['English (US)', 'English (British)', 'Indonesian'];
 
